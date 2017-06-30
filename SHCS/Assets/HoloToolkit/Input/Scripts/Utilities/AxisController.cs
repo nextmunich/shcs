@@ -538,8 +538,13 @@ namespace HoloToolkit.Unity.InputModule
             }
         }
 
-#if UNITY_EDITOR
-        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+#if UNITY_EDITOR_OSX
+        private bool IsRunningUnderRemoteDesktop()
+        {
+            return true;
+        }
+#elif UNITY_EDITOR
+		[System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern uint GetCurrentProcessId();
 
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
