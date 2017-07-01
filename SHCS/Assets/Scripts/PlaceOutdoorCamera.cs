@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 
-public class PlaceOutdoorCamera : GazeableButton {
-
+public class PlaceOutdoorCamera : GazeableButton
+{
     public GameObject OutdoorPrefab;
 
     protected override void OnPointSelected(Vector3 point)
@@ -18,5 +18,7 @@ public class PlaceOutdoorCamera : GazeableButton {
 
         /*outdoorCamera.transform.LookAt(camera.transform);
         outdoorCamera.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);*/
+
+        ProcessService.GetInstance().AddCameraToOrder(CameraModelType.Outdoor);
     }
 }

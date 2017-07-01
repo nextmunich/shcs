@@ -6,11 +6,11 @@ using System;
 
 public class PlaceIndoorCamera : GazeableButton
 {
-
     public GameObject IndoorPrefab;
 
     protected override void OnPointSelected(Vector3 point)
     {
+
         var camera = FindObjectOfType<Camera>();
 
         var indoorCamera = Instantiate(IndoorPrefab, point, new Quaternion());
@@ -18,5 +18,7 @@ public class PlaceIndoorCamera : GazeableButton
         lightShafts.m_Cameras = new Camera[] { camera };
 
         /*indoorCamera.transform.LookAt(camera.transform);*/
+
+        ProcessService.GetInstance().AddCameraToOrder(CameraModelType.Indoor);
     }
 }

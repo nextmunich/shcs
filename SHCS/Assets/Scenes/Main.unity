@@ -1090,6 +1090,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1130c42ef5ea34085feb8d94f9c8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1532914940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1532914938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7549459ab51d49fcb8ea02788a07154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1532914944 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20000013304850028, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
