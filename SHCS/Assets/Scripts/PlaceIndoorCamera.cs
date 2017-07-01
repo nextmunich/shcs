@@ -11,6 +11,12 @@ public class PlaceIndoorCamera : GazeableButton
 
     protected override void OnPointSelected(Vector3 point)
     {
-        Instantiate(IndoorPrefab, point, new Quaternion());
+        var camera = FindObjectOfType<Camera>();
+
+        var indoorCamera = Instantiate(IndoorPrefab, point, new Quaternion());
+        var lightShafts = indoorCamera.GetComponentInChildren<LightShafts>();
+        lightShafts.m_Cameras = new Camera[] { camera };
+
+        /*indoorCamera.transform.LookAt(camera.transform);*/
     }
 }

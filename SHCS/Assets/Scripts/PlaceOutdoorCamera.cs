@@ -10,6 +10,13 @@ public class PlaceOutdoorCamera : GazeableButton {
 
     protected override void OnPointSelected(Vector3 point)
     {
-        Instantiate(OutdoorPrefab, point, new Quaternion());
+        var camera = FindObjectOfType<Camera>();
+
+        var outdoorCamera = Instantiate(OutdoorPrefab, point, new Quaternion());
+        var lightShafts = outdoorCamera.GetComponentInChildren<LightShafts>();
+        lightShafts.m_Cameras = new Camera[] { camera };
+
+        /*outdoorCamera.transform.LookAt(camera.transform);
+        outdoorCamera.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);*/
     }
 }

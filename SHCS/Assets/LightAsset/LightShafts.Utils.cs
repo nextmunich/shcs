@@ -111,6 +111,7 @@ public partial class LightShafts : MonoBehaviour
 
 	bool IsVisible()
 	{
+        return true;
 		// Intersect against spot light's OBB (or light frustum's OBB), so AABB in it's space
 		Matrix4x4 lightToCameraProjection = m_CurrentCamera.projectionMatrix * m_CurrentCamera.worldToCameraMatrix * transform.localToWorldMatrix;
 		return GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(lightToCameraProjection), GetBoundsLocal());
