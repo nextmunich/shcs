@@ -6,6 +6,9 @@ using UnityEngine;
 public abstract class GazeableButton : MonoBehaviour, IFocusable, IInputClickHandler
 {
 
+    private static int _nextColorIndex;
+    private static readonly Color[] _colors = new Color[] { Color.blue, Color.red, Color.green, Color.cyan, Color.magenta };
+
     private Vector3 _oldScale;
 
     // Use this for initialization
@@ -17,6 +20,18 @@ public abstract class GazeableButton : MonoBehaviour, IFocusable, IInputClickHan
 	void Update () {
 		
 	}
+
+
+    protected static Color GetNextCameraSightColor()
+    {
+        return _colors[_nextColorIndex++ % _colors.Length];
+    }
+
+    protected void CloseMenu()
+    {
+        var menu = FindObjectOfType<Menu>();
+        menu.CloseMenu();
+    }
 
 
     public void OnFocusEnter()
@@ -33,8 +48,11 @@ public abstract class GazeableButton : MonoBehaviour, IFocusable, IInputClickHan
     public void OnInputClicked(InputClickedEventData eventData)
     {
         var lastTapLocation = FindObjectOfType<Menu>().LastTapLocation;
-        OnPointSelected(lastTapLocation);
+        if (OnPointSelected(lastTapLocation))
+        {
+            CloseMenu();
+        }
     }
 
-    protected abstract void OnPointSelected(Vector3 point);
+    protected abstract bool OnPointSelected(Vector3 point);
 }

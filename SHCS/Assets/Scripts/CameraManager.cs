@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GazeManager.Instance.FocusedObjectChanged += GazeManagerInstance_FocusedObjectChanged;
+        
 	}
 
     // Update is called once per frame
@@ -18,14 +18,13 @@ public class CameraManager : MonoBehaviour {
 	}
 
     
-    
-    private void GazeManagerInstance_FocusedObjectChanged(GameObject previousObject, GameObject newObject)
+    public void RemoveCameras()
     {
-        var indoorCamera = newObject.GetComponent<IndoorCamera>();
-        if (indoorCamera != null && !indoorCamera.GetComponent<Rigidbody>())
+        for (int i = transform.childCount - 1; i >= 0; i--)
         {
-            var rigidBody = indoorCamera.gameObject.AddComponent<Rigidbody>();
-            rigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            Destroy(transform.GetChild(i).gameObject);
         }
+
     }
+    
 }
