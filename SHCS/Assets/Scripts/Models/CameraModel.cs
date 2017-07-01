@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Newtonsoft.Json;
 
 public class CameraModel
 {
@@ -7,6 +8,7 @@ public class CameraModel
 
     public string Name { get; set; }
 
+    [JsonProperty(PropertyName="cameraModel")]
     public CameraModelType CameraModelType { get; set; }
 
     public double PriceInEuro { get; set; }

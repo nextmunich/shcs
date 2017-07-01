@@ -93,6 +93,8 @@ public class ProcessService
             var numberOfCameras = _dataService.Order.CameraOrderItems[camera.Id];
             var numberOfCamerasInteger = int.Parse(numberOfCameras);
             numberOfCameras = string.Format("{0}", numberOfCamerasInteger + 1);
+            _dataService.Order.CameraOrderItems.Remove(camera.Id);
+            _dataService.Order.CameraOrderItems.Add(camera.Id, numberOfCameras);
         }
         else
         {

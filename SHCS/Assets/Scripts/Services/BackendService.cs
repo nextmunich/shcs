@@ -65,6 +65,8 @@ public class BackendService
         handler.contentType = BackendConstants.ApplicationJson;
         request.uploadHandler = handler;
 
+        Debug.LogError(string.Format("Body: {0}", body));
+
         AddDefaultHeaders(request, false);
 
         yield return request.Send();
