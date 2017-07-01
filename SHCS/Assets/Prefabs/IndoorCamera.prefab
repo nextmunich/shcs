@@ -685,6 +685,7 @@ MonoBehaviour:
   AlreadyColored: 0
   IsRotateable: 1
   Head: {fileID: 114066330432271358}
+  CameraModelType: 1
 --- !u!114 &114667223417690076
 MonoBehaviour:
   m_ObjectHideFlags: 1
