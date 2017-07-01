@@ -8,6 +8,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 38702009a822ae64f8aae387ded6dedb
-  - enabled: 0
-    path: Assets/HoloToolkit-Tests/Input/Scenes/Cursor.unity
-    guid: e01ef1cc98e864b4cb6a31ab4ea36aee
