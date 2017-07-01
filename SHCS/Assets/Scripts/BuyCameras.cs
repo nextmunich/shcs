@@ -21,7 +21,7 @@ public class BuyCameras : GazeableButton
 
     protected override void OnPointSelected(Vector3 point)
     {
-        ProcessService.GetInstance().CompleteOrder((success) =>
+        ProcessService.GetInstance().CompleteOrder(this, (success) =>
         {
             //TODO: Remove all cameras from scene
         });

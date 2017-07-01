@@ -138,11 +138,11 @@ public class ProcessService
         }
     }
 
-    public void CompleteOrder(Action<bool> action)
+    public void CompleteOrder(MonoBehaviour monoBehaviour, Action<bool> action)
     {
         if (_dataService.Order != null)
         {
-            _backendService.PostOrder(_dataService.Order, (success) =>
+            monoBehaviour.StartCoroutine(_backendService.PostOrder(_dataService.Order, (success) =>
             {
                 if (success)
                 {
@@ -155,7 +155,7 @@ public class ProcessService
                 }
 
                 action(success);
-            });
+            }));
         }
         else
         {
