@@ -58,7 +58,7 @@ public class BackendService
     {
         var url = GetDefaultUrl(BackendConstants.DataModelCameraOrder, false);
         var request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPOST);
-        var postData = cameraOrder.GetPostDictionary(BackendConstants.AppName);
+        var postData = cameraOrder.GetPostDictionary();
         var body = JsonConvert.SerializeObject(postData);
         var bytes = Encoding.UTF8.GetBytes(body);
         var handler = new UploadHandlerRaw(bytes);
